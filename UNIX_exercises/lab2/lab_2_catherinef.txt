@@ -1,0 +1,33 @@
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//COMMANDS FROM LAB 2
+
+1.a. date +"%T" > time.txt
+1.b. cal > cal.txt
+1.c. cal 2016 > cal2016.txt
+1.d. cal 06 08 1989 > myBday.txt (prints bday calendar to file)
+	date -d "1989-06-08" +"%A" > myBday_weekday.txt (prints the weekday of said date in string to file)
+
+2. 
+	mkdir cities
+	mv citylist.txt cities
+	(i just copied your list into notepad and saved it.)
+2.a. sort citylist.txt
+2.b. sort -k2n citylist.txt 
+     sort -k2nr citylist.txt
+2.c. sort -k2n citylist.txt | more -3 citylist.txt
+     sort -k2nr citylist.txt | more -3 citylist.txt
+
+3.a. cat citylist.txt >> citylist2.txt
+
+4.a. yes files have inodes. df -i ot ls -i
+	Inode is short for index node. It is a representation of a file system object (i.e. file / directory).
+4.b. 1222896053 or 96% are free. df --total -i 
+4.c. By deleting files and directories. 
+	Inodes mark a place that a file is, so that file needs to be deleted with all possible links to it in mind.
+	I think there are many ways to do this, some more effectiv than others. 
+	One way -> use mke2fs -N when creating a file system, -N tag is a manual override to the default claculation of number of inodes that should be reserved for file system.
+	However, since there are already inodes accociated with your existing files / dirs, you could simply rename unwanted objects, as opposed to deleting and creating new ones, thus not creating the need to use anymore inodes.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -1,0 +1,27 @@
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//COMMANDS FROM LAB 1
+
+1.a. pwd , also ls ../
+1.b. who -u
+1.c. who -b
+
+2.a. date
+2.b. cal
+2.c. cal 2016, or cal -y
+2.d. cal 08 06 1989
+2.e. date;cal
+
+3.a.mkdir texts; cd texts
+3.b.nano new
+3.c."/*Hi, I'm new*/ ^x y new.txt enter
+3.d.ls -l new.txt (output: -rwx------. )
+
+4.a. cd cd public_html/
+4.b. cp new.txt new2.txt mv new.txt ..(3x) cd public_html/ cp ../new.txt .
+4.c. ok its there, no permission.
+4.d. chmod 444 new.txt chmod 400 new.txt
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

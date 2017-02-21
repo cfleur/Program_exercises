@@ -1,0 +1,32 @@
+Catherine Fait 1403142
+Lab 4 Unix
+
+1. Give your name and email address to variable ($NAME ja $EMAIL) and print their contents using echo.
+
+> script1_echoname.sh 
+
+2. Do a shell script, that prints the contents of all files in a folder.
+
+> script2_filecontents.sh
+
+3. Do a shell script that executes the lab2 ex 2b, (sorts the citylist) and prints three cities based on the population.
+
+> script3_cities.sh
+
+4. Give your birth year as a parameter to a script and calculate your age based on these.
+
+> script4_yearage.sh
+> script4_age.sh
+
+5. Do a shell script, that takes your name and age and calculates your birth year based on the given
+age.
+
+> script5_age1.sh
+
+6. Do a shell scipt like in the exercise 5, but the program must check that you’ve given many enough
+parameters. If not, the program will ask you to give the missing parameters again. After receiving
+the missing parameters the program will execute like ex 5.
+
+> script6_parameters.sh
+
+

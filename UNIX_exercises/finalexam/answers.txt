@@ -1,0 +1,23 @@
+
+A)	1. N/A
+	2. mkdir unix_exam2016
+	   cd unix_exam2016
+	3. mkdir questions
+	   mv questions/ exam/	
+	4. grep -i '1000000' studentnumbers
+	5. wc -l  studentnumbers
+	6. sort -k2n studentnumbers # smallest on the top, -r for other way
+
+B)	1. cp companySupports2 ..
+	   cd ..
+	   mv companySupports2 unix_exam2016/exam/answer_scripts/
+	   >> script1_tot.sh # This script uses awk. first part of the command assigns 'tot' the value of the sum of $column. END block is executed after the filtering (main part is done). awk syntax is optional BEGIN block, then main part, then optional END block. I tried bunch of syntaxes but this one worked the best.
+ 
+	2. >> script2_maxyear.sh # This script uses a while loop for repetition of prompt to enter data with nested if else statement. It prints the pipped commands which baasically just filter the output. Exit value is assigned 9, so when 9 is the input loop exits.
+
+C)	1. >> script3_sortxy.sh # This program uses awk to print the filtered output from the pipe of sort and head and assigns the final output to a variable, then echos the variables.
+	2. >> script4_avxy.sh # This program is a combination of commands from B)1. and C)1. The only step missing is the math, I didnät have time to search about floating point numbers. However the commas can be easily replaced with sed 's/,/./g' filemane. Have to remember about this problem in Finland. Then the idea is simply to divide the sum of the row by the number of lines. (`wc -l` shows the word cound, -l for lines)
+	3. # Like script 1 but every other column summed assigned using the VAR_n=$(awk '{ tot += $_n } END { print tot }' data2) command
+	# ... will then in turn be summed as VAR_1 + VAR_2 ... + VAR_n
+ 	
+# Remark. In the exercises and here I found awk very useful for columns, and has capability with many of its own functions.

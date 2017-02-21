@@ -1,0 +1,46 @@
+Catherine Fait 1403142
+Unix OS Lab 5
+
+1. Write a shell script, that takes arguments and calculates the sum of the arguments:
+
+> script7_sum.sh 
+
+2. Download file ”companySupports” using the command line in Edunix environment.
+
+$ wget http://users.metropolia.fi/~samisai/unix_2016/companySupports
+
+3. Write a shell script that reads the contents of the companySupports file and prints the contents of the file line by line.
+
+> script8_readfile.sh
+
+4. Continue from this lab exercise 3; Add a feature, where you print the contents of the file as follows:
+Company name: [LINECHANGE] support 2013, support 2012, support 2011, change-% 2012-2011
+
+> script9_company.sh
+ 
+5. Continue from this lab exercise 4; Add a feature to the script so, that you can give an argument to the script defining which year is of interest. When the year is given as argument (for example 2012) then you must also be able to give another argument defining by number what is the limit of the money given to the company in order for it to be displayed. Script must also print at the end how many companies match the criteria.
+
+> script10_yearlim.sh
+
+6. Continue from this lab exercise 5; upgrade the search funtion so, that you can define portion of company name as argument, so all matchin companies will be shown:
+
+>  script11_namescrh.sh
+
+7. Create a schell script that print your name and date to a file.
+
+> script12_nandd2file.sh
+
+8. Continue so, that this lab exercise 7 is ran every minute using crontab (man crontab)
+
+$ chmod 711 /home1-1/c/catherif/UNIX/WK5/script12_nandd2file.sh
+$ crontab -e
+add 
+* * * * * catherif /home1-1/c/catherif/UNIX/WK5/script12_nandd2file.sh
+$ crontab -l # to check whats there
+... when checking the file it should output to, don't see any changes, but keep getting this message:
+" You have new mail in /var/spool/mail/catherif " 
+also tried this:
+* * * * * /home1-1/c/catherif/UNIX/WK5/script12_nandd2file.sh
+but does nothing :/
+$ crontab -r # remove
+$ crontab -l # now empty

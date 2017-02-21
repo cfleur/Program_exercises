@@ -1,0 +1,52 @@
+Catherine Fait 1403142 UNIX Lab 3
+1)Write a grep command, that lists all cities from a country you specify.
+$ grep -i 'china' city_list.txt
+
+2)Write a grep command, that finds a city by specific name.
+$ grep -i 'dhaka' city_list.txt
+
+3)Do number 2, but the other way around (exclude the given city name).
+$ grep -iv 'dhaka' city_list.txt
+
+4)List all cities with a population above 10 million.
+$ sed 's/,//g' city_list.txt > city_list_nocomma.txt
+$ grep '[0-9]\{8,\}' city_list_nocomma.txt
+(this only works if there are no longer strings of numbers then the population)
+
+5)How many cities have more than 10 million people? (Print with a command).
+$ grep '[0-9]\{8,\}' -c city_list_nocomma.txt > numberofcities.txt
+
+6. By using grep command, find all processes, whose parent process ID (PPID) is 1, including all kernel threads from the output of command “ps –ef”.
+$ ps -ef | awk '$3 == 1'
+
+7. Do your best to use sed command to remove *.jpg, *.JPG and other image filytype extensions. 
+$ sed s/.jpg//g city_list.txt > temp1
+check:
+	$ grep ".jpg" temp1
+	$ grep -v ".jpg" temp1
+$ sed s/.JPG//g temp1 > temp 2
+check:
+ 	$ grep -i ".jpg" temp2
+        $ grep -iv ".jpg" temp2
+$ sed s/.jpeg//g temp2 > temp3
+check:
+	$ grep ".jpeg" temp3
+        $ grep -iv ".jpeg" temp3
+$ sed s/.png//g temp3 >  city_nopic.txt
+check:
+	$ grep '\.[a-z]\{3,4\}' city_nopic.txt
+ 	$ grep '\.[a-z]\{3,4\}' city_nopic.txt
+(I tried piping these commands and also using && to do it all at once but it only worked one by one :(
+
+8. Filter the citylist so that you only print one city per country.
+$ sed s/China/~China/g city_nopic.txt > temp1
+$ sed s/India/~India/g temp1 > temp2
+And then do this to all countries, to use the ~ as a seperator.
+$ grep "~" temp2 > temp3
+Okay I'm to lazy to do this to all so I made a new list with just China and India called temp3.
+$ sort -t~ -k2 temp3 
+Previous command  sorts according to country, but according to man uniq can only seperate by blanks so remove all but one blank:
+$ sed 's/ //g' temp3 > temp4
+$ sed 's/~/ /g' temp4 > temp5
+$ sort -k2r temp8 | uniq -cf1
+Problems were that countries were repeted several times and number of 'fields' per line were not even. It would have been nice to be able to anchor to end of the line somehow. I think awk would have been more dynamic for this type of text. Nevertheless, the command above is useful to see how shell is reading the repititions (i.e. uniq -c).
